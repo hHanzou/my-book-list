@@ -5,16 +5,27 @@
             <input type="text" name="name" id="name" class="form-input rounded-xl" placeholder="Book's name">
         </div>
         <div>
-            <label class="text-white" for="name">Author:</label><br>
+            <label class="text-white" for="autname">Author:</label><br>
             <input type="text" name="autname" id="autname" class="form-input rounded-xl" placeholder="Author's name">
         </div>   
         <br>
         <div>
-            <label class="text-white" for="name">Description:</label><br>
-            <textarea class="form-textarea rounded-xl" placeholder="Book description"></textarea>
+            <label class="text-white" for="description">Description:</label><br>
+            <textarea class="form-textarea rounded-xl" name="description" placeholder="Book description"></textarea>
         </div>
+        <div class="rounded-lg "> 
+            <label class="text-white" for="categories">Categories:</label><br>
+            <select class="w-48 rounded-xl" name="" id="" multiple>
+                <option value="">Adventure</option>
+                <option value="">Fiction</option>
+                <option value="">Fantasy</option>
+                <option value="">Science</option>
+                <option value="">Horror</option>
+            </select>
+        </div>
+        <div class="text-white">hold ctrl to select more than one*</div>
         <br>
         <button class="rounded-full bg-slate-700 hover:bg-slate-800 duration-300 text-white py-2 px-3 w-32">Submit</button>
-
     </form>
 </div>
+

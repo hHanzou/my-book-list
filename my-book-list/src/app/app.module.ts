@@ -8,6 +8,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { TableComponent } from './components/content/table/table.component';
 import { AddPageComponent } from './pages/add/add-page/add-page.component';
 import { FormsComponent } from './components/forms/forms/forms.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CategoriesComponent } from './pages/categories/categories/categories.component';
+import { CtgTableComponent } from './components/content/ctg-table/ctg-table.component';
+import { CtgFormsComponent } from './components/forms/ctg-forms/ctg-forms.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +21,14 @@ import { FormsComponent } from './components/forms/forms/forms.component';
     TableComponent,
     AddPageComponent,
     FormsComponent,
+    CategoriesComponent,
+    CtgTableComponent,
+    CtgFormsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
