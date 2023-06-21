@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TableComponent } from './components/content/table/table.component';
+import { AddPageComponent } from './pages/add/add-page/add-page.component';
+import { FormsComponent } from './components/forms/forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { TableComponent } from './components/content/table/table.component';
     HomePageComponent,
     HeaderComponent,
     TableComponent,
+    AddPageComponent,
+    FormsComponent,
   ],
   imports: [
     BrowserModule,

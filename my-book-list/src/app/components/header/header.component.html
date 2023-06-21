@@ -1,7 +1,8 @@
-<nav class="fixed top-0 left-0 bg-slate-800 text-white shadow-xl h-16 w-screen sm:w-full inline-flex flex-row justify-start items-center">
-    <div class="text-sm sm:text-base md:text-xl font-sans font-bold mx-1 sm:mx-6"><i class="fa-solid fa-book-open-reader" style="color: #ffffff;"></i> MyBookList</div>
-    <ul class="flex text-sm sm:text-base font-semibold gap-x-5">
-        <li class="border-r-2 border-gray-400 px-5"><a href="">Add</a></li>
-        <li><a href="">Categories</a></li>
+<nav class="fixed top-0 left-0 min-w-full bg-slate-800 text-white shadow-xl h-16 w-screen sm:w-full inline-flex flex-row justify-start items-center">
+    <div class="text-base md:text-xl font-sans font-bold mx-1 sm:mx-6 hover:text-slate-400"><i class="fa-solid fa-book-open-reader" style="color: #ffffff;"></i><a [routerLink]="['/home']" routerLinkActive="router-link-active" > MyBookList</a></div>
+    <ul class="flex text-xs sm:text-base font-semibold">
+        <li class="border-r-2 border-gray-400 px-5 hover:text-slate-400"><a href="" [routerLink]="['/add']" routerLinkActive="router-link-active" >Add</a></li>
+        <li class="border-gray-400"></li>
+        <li class="pl-5 hover:text-slate-400"><a href="">Categories</a></li>
     </ul>
 </nav>
