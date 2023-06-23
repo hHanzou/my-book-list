@@ -25,10 +25,10 @@ namespace webapi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
         {
-          if (_context.Category == null)
-          {
-              return NotFound();
-          }
+            if (_context.Category == null)
+            {
+                return NotFound();
+            }
             return await _context.Category.ToListAsync();
         }
 
@@ -36,10 +36,10 @@ namespace webapi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
         {
-          if (_context.Category == null)
-          {
-              return NotFound();
-          }
+            if (_context.Category == null)
+            {
+                return NotFound();
+            }
             var category = await _context.Category.FindAsync(id);
 
             if (category == null)
@@ -50,12 +50,29 @@ namespace webapi.Controllers
             return category;
         }
 
+        [HttpGet("byname/{name}")]
+        public async Task<ActionResult<Category>> GetCategoryByName(string name)
+        {
+            if (_context.Category == null)
+            {
+                return NotFound();
+            }
+            var category = await _context.Category.FirstOrDefaultAsync(c => c.CategoryName == name);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(category);
+        }
+
         // PUT: api/Categories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
-            if (id != category.Id)
+            if (id != category.CategoryId)
             {
                 return BadRequest();
             }
@@ -86,14 +103,14 @@ namespace webapi.Controllers
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
-          if (_context.Category == null)
-          {
-              return Problem("Entity set 'AppDbContext.Category'  is null.");
-          }
+            if (_context.Category == null)
+            {
+                return Problem("Entity set 'AppDbContext.Category'  is null.");
+            }
             _context.Category.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+            return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
         }
 
         // DELETE: api/Categories/5
@@ -118,7 +135,7 @@ namespace webapi.Controllers
 
         private bool CategoryExists(int id)
         {
-            return (_context.Category?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Category?.Any(e => e.CategoryId == id)).GetValueOrDefault();
         }
     }
 }

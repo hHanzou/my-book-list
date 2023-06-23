@@ -25,10 +25,10 @@ namespace webapi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BookCategory>>> GetBookCategories()
         {
-          if (_context.BookCategories == null)
-          {
-              return NotFound();
-          }
+            if (_context.BookCategories == null)
+            {
+                return NotFound();
+            }
             return await _context.BookCategories.ToListAsync();
         }
 
@@ -36,10 +36,10 @@ namespace webapi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<BookCategory>> GetBookCategory(int? id)
         {
-          if (_context.BookCategories == null)
-          {
-              return NotFound();
-          }
+            if (_context.BookCategories == null)
+            {
+                return NotFound();
+            }
             var bookCategory = await _context.BookCategories.FindAsync(id);
 
             if (bookCategory == null)
@@ -86,10 +86,10 @@ namespace webapi.Controllers
         [HttpPost]
         public async Task<ActionResult<BookCategory>> PostBookCategory(BookCategory bookCategory)
         {
-          if (_context.BookCategories == null)
-          {
-              return Problem("Entity set 'AppDbContext.BookCategories'  is null.");
-          }
+            if (_context.BookCategories == null)
+            {
+                return Problem("Entity set 'AppDbContext.BookCategories'  is null.");
+            }
             _context.BookCategories.Add(bookCategory);
             try
             {

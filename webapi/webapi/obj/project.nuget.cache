@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hKmV1Og+EKa2vBjXAlQ8/GGOcesvWTLoCOb6ImmgrQdi0Y4DqqM0x2bFKRhAuojg+zJqE5SOxcUm7KGp+UtdSA==",
+  "dgSpecHash": "eQNIqqQw4jDBtDvDO+fmR0aYfM2fypKnT+7WlihrGP8FROHTkjvPooovXo+ItoQN+/D6+UZJxu4LFzm+3mRAHw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\erick\\source\\repos\\webapi\\webapi\\webapi.csproj",
+  "projectFilePath": "C:\\Users\\erick\\OneDrive\\Área de Trabalho\\my-book-list\\webapi\\webapi\\webapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erick\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\erick\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

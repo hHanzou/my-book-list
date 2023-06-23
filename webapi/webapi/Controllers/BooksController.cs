@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using app.ContextDb;
@@ -25,10 +21,10 @@ namespace webapi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBook()
         {
-          if (_context.Book == null)
-          {
-              return NotFound();
-          }
+            if (_context.Book == null)
+            {
+                return NotFound();
+            }
             return await _context.Book.ToListAsync();
         }
 
@@ -36,10 +32,10 @@ namespace webapi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBook(int id)
         {
-          if (_context.Book == null)
-          {
-              return NotFound();
-          }
+            if (_context.Book == null)
+            {
+                return NotFound();
+            }
             var book = await _context.Book.FindAsync(id);
 
             if (book == null)
@@ -49,13 +45,29 @@ namespace webapi.Controllers
 
             return book;
         }
+        [HttpGet("byname/{name}")]
+        public async Task<ActionResult<Book>> GetBookByName(string name)
+        {
+            if (_context.Book == null)
+            {
+                return NotFound();
+            }
+            var book = await _context.Book.FirstOrDefaultAsync(b => b.BookName == name);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(book);
+        }
 
         // PUT: api/Books/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBook(int id, Book book)
         {
-            if (id != book.Id)
+            if (id != book.BookId)
             {
                 return BadRequest();
             }
@@ -86,14 +98,14 @@ namespace webapi.Controllers
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook(Book book)
         {
-          if (_context.Book == null)
-          {
-              return Problem("Entity set 'AppDbContext.Book'  is null.");
-          }
+            if (_context.Book == null)
+            {
+                return Problem("Entity set 'AppDbContext.Book'  is null.");
+            }
             _context.Book.Add(book);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBook", new { id = book.Id }, book);
+            return CreatedAtAction("GetBook", new { id = book.BookId }, book);
         }
 
         // DELETE: api/Books/5
@@ -118,7 +130,7 @@ namespace webapi.Controllers
 
         private bool BookExists(int id)
         {
-            return (_context.Book?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Book?.Any(e => e.BookId == id)).GetValueOrDefault();
         }
     }
 }

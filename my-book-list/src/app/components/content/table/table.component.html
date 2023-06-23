@@ -5,13 +5,13 @@
         <thead class="text-slate-100">
           <tr>
             <th class="px-4 py-2">Book</th>
-            <th class="px-4 py-2">Author</th>
           </tr>
         </thead>
-        <tbody class="bg-gradient-to-r from-slate-800 to-slate-950 text-slate-300 border-collapse">
-          <tr>
-            <td class="border-b border-r border-slate-700 pl-10 py-2"><a href="">Harry Potter e a Pedra Filosofal</a></td>
-            <td class="border-b border-l border-slate-700 pl-10 py-2 pr-2">J.K. Rowling</td>
+        <tbody *ngIf="book" class="bg-gradient-to-r from-slate-800 to-slate-950 text-slate-300 border-collapse">
+          <tr *ngFor="let b of book">
+            <td class="border-b border-r border-slate-700 pl-10 py-2">
+              <a href="">{{b.bookName}}</a>
+            </td>
           </tr>
         </tbody>
       </table>

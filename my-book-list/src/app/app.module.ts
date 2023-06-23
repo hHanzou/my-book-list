@@ -12,6 +12,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
 import { CtgTableComponent } from './components/content/ctg-table/ctg-table.component';
 import { CtgFormsComponent } from './components/forms/ctg-forms/ctg-forms.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CtgFormsComponent } from './components/forms/ctg-forms/ctg-forms.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NoopAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
